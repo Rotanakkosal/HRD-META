@@ -1,5 +1,5 @@
 datasource db {
-  provider = "mongo"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
@@ -38,6 +38,7 @@ model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
   email         String?   @unique
+  password      String?
   emailVerified DateTime?
   image         String?
   accounts      Account[]

@@ -1,9 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { getSession } from "next-auth/react";
-import SessionProviders from "./components/SessionProvider";
-import { getServerSession } from "next-auth";
-import NavMenu from "./components/NavMenu";
+import Provider from "@/context/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,16 +10,15 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const session = await getServerSession();
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <SessionProviders session={session}> */}
+        {/* <Provider> */}
           <main className="mx-auto max-w-5xl text-2xl flex gap-2">
             {/* <NavMenu/> */}
             {children}
           </main>
-        {/* </SessionProviders> */}
+          {/* </Provider> */}
       </body>
     </html>
   );
